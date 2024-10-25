@@ -23,4 +23,3 @@ create .env file in the root directory
 
 CLIENT_ID=<your client id>
 CLIENT_SECRET=<your secret key>
-TOKEN_URL=https://oauth.pipedrive.com/oauth/token
