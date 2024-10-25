@@ -30,7 +30,6 @@ function exchangeAuthorizationCodeForTokens(authorizationCode, redirectUri, res)
         `);
     })
     .catch(error => {
-        console.error('Error exchanging authorization code:', error);
         res.send('Failed to exchange authorization code.');
     });
 }

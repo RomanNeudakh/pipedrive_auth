@@ -15,7 +15,13 @@ app.use(express.json());
 app.post('/form', async (req, res) => {
     const receivedData = req.body;
     const dealId = receivedData.queryObject.selectedIds;
-    updateDeal(receivedData, dealId);
+    try {
+        await updateDeal(receivedData, dealId);
+        res.status(200).json({ success: true, message: 'Deal updated successfully' });
+    } catch (error) {
+        console.error('Error updating deal:', error);
+        res.status(500).json({ success: false, message: 'Failed to update deal' });
+    }
 })
 app.get('/', async (req, res) => {
     const authorizationCode = req.query.code;
@@ -27,8 +33,7 @@ app.get('/', async (req, res) => {
             dealField.key = key;
         }
     } else {
-        console.log('Authorization failed or user denied access.');
-        return;
+        res.send('Authorization failed or user denied access.');
     }
 });
 app.listen(port, () => {
