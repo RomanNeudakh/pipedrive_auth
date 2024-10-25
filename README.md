@@ -16,3 +16,11 @@ Put your app online at an ephemeral domain forwarding to your upstream service. 
 ngrok http http://localhost:8080
 
 This will give you a public URL (like https://abcdefg.ngrok.io) that you can find in command prompt ngrok.
+
+
+
+create .env file in the root directory 
+
+CLIENT_ID=<your client id>
+CLIENT_SECRET=<your secret key>
+TOKEN_URL=https://oauth.pipedrive.com/oauth/token
